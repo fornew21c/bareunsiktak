@@ -23,13 +23,22 @@ export default function ProductDetailModal() {
   if (!product) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center">
+    <div className="fixed inset-0 z-[60] flex items-end justify-center px-0 pt-[max(3rem,env(safe-area-inset-top))] sm:items-center sm:p-4 sm:pt-4">
       <div
         onClick={close}
         className="absolute inset-0 bg-ink/50 backdrop-blur-sm"
         aria-hidden
       />
-      <div className="relative z-10 flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[2rem] bg-cream shadow-2xl sm:max-h-[88vh] sm:rounded-[2rem]">
+      <div className="relative z-10 flex max-h-[88dvh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[2rem] bg-cream shadow-2xl sm:max-h-[88dvh] sm:rounded-[2rem]">
+        {/* drag handle (mobile close affordance) */}
+        <button
+          onClick={close}
+          className="absolute left-1/2 top-2 z-20 -translate-x-1/2 p-2 sm:hidden"
+          aria-label="닫기"
+        >
+          <span className="block h-1.5 w-12 rounded-full bg-cream/80 shadow" />
+        </button>
+
         {/* header image / accent */}
         <div
           className="relative h-44 shrink-0 sm:h-52"
@@ -49,7 +58,7 @@ export default function ProductDetailModal() {
           )}
           <button
             onClick={close}
-            className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-cream/90 text-ink shadow-md backdrop-blur-sm transition hover:bg-cream"
+            className="absolute right-3 top-3 z-20 grid h-11 w-11 place-items-center rounded-full bg-cream/95 text-lg text-ink shadow-md backdrop-blur-sm transition hover:bg-cream active:scale-95"
             aria-label="닫기"
           >
             ✕
