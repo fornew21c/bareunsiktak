@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #faf6ef;
+  --cream-deep: #f1e9da;
+  --ink: #2a2622;
+  --forest: #38503b;
+  --forest-soft: #5c7a5e;
+  --apricot: #e89b5a;
+  --apricot-soft: #f6d2ab;
+  --clay: #c96b46;
+}
+
+@theme inline {
+  --color-cream: #faf6ef;
+  --color-cream-deep: #f1e9da;
+  --color-ink: #2a2622;
+  --color-forest: #38503b;
+  --color-forest-soft: #5c7a5e;
+  --color-apricot: #e89b5a;
+  --color-apricot-soft: #f6d2ab;
+  --color-clay: #c96b46;
+  --font-sans: var(--font-noto), system-ui, sans-serif;
+  --font-display: var(--font-display), serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-noto), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle dotted paper feel */
+.paper-noise {
+  background-image: radial-gradient(
+    rgba(56, 80, 59, 0.045) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+
+@keyframes float-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: float-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .marquee {
+    animation: none;
+  }
+}
+
+::selection {
+  background: var(--apricot-soft);
+  color: var(--ink);
+}
+
+/* hide scrollbar for horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
