@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useCart } from "./CartProvider";
+import { useProductDetail } from "./ProductDetailProvider";
 import { won, type Product } from "@/lib/products";
 import { asset } from "@/lib/asset";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
+  const { open } = useProductDetail();
   const [added, setAdded] = useState(false);
 
   const onAdd = () => {
@@ -17,9 +19,11 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-3xl border border-ink/8 bg-cream transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-forest/10">
-      <div
-        className="relative aspect-[5/4] overflow-hidden"
+      <button
+        onClick={() => open(product)}
+        className="relative aspect-[5/4] w-full cursor-pointer overflow-hidden text-left"
         style={{ background: product.accent }}
+        aria-label={`${product.name} 재료·레시피 보기`}
       >
         {product.image ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -43,7 +47,7 @@ export default function ProductCard({ product }: { product: Product }) {
             </span>
           ))}
         </div>
-      </div>
+      </button>
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="font-display text-lg font-bold leading-snug text-ink">
@@ -55,6 +59,13 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="mt-2.5 line-clamp-2 text-sm leading-relaxed text-ink/55">
           {product.description}
         </p>
+
+        <button
+          onClick={() => open(product)}
+          className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-forest/8 px-3 py-1.5 text-xs font-medium text-forest transition-colors hover:bg-forest/15"
+        >
+          🔍 재료·레시피 전부 보기
+        </button>
 
         <div className="mt-4 flex items-end justify-between pt-2">
           <div>

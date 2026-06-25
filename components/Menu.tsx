@@ -30,6 +30,9 @@ export default function Menu() {
             주문해주신 만큼만 그날 조리합니다. 미리 만들어 두지 않으니
             언제나 갓 만든 신선함 그대로예요.
           </p>
+          <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-forest/8 px-3 py-1.5 text-xs font-medium text-forest">
+            🔍 카드를 누르면 전 성분 · 원산지 · 레시피를 모두 볼 수 있어요
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-2">
