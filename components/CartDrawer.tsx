@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
 import { won } from "@/lib/products";
+import { asset } from "@/lib/asset";
 
 const DELIVERY_FREE_OVER = 30000;
 const DELIVERY_FEE = 3500;
@@ -95,7 +96,7 @@ export default function CartDrawer() {
                     {l.image ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={l.image}
+                        src={asset(l.image)}
                         alt={l.name}
                         className="h-full w-full object-cover"
                       />

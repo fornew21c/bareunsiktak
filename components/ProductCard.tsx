@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useCart } from "./CartProvider";
 import { won, type Product } from "@/lib/products";
+import { asset } from "@/lib/asset";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
@@ -23,7 +24,7 @@ export default function ProductCard({ product }: { product: Product }) {
         {product.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={product.image}
+            src={asset(product.image)}
             alt={product.name}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />

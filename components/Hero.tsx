@@ -1,5 +1,7 @@
 "use client";
 
+import { asset } from "@/lib/asset";
+
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
@@ -72,7 +74,7 @@ export default function Hero() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-forest/15 md:rounded-[2.5rem]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/products/salmon-sandwich.jpeg"
+              src={asset("/products/salmon-sandwich.jpeg")}
               alt="노르웨이 연어 루꼴라 샌드위치"
               className="h-full w-full object-cover"
             />

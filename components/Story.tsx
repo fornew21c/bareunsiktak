@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 export default function Story() {
   return (
     <section id="story" className="bg-cream-deep/60">
@@ -6,7 +8,7 @@ export default function Story() {
           <div className="aspect-[4/3] w-full overflow-hidden rounded-[2rem] shadow-xl shadow-forest/10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/products/egg-salad-sandwich.jpeg"
+              src={asset("/products/egg-salad-sandwich.jpeg")}
               alt="에그샐러드 당근 샌드위치"
               className="h-full w-full object-cover"
             />
