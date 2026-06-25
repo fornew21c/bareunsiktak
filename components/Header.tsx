@@ -5,8 +5,8 @@ import { useCart } from "./CartProvider";
 
 const links = [
   { href: "#menu", label: "메뉴" },
+  { href: "#transparency", label: "투명성" },
   { href: "#story", label: "이야기" },
-  { href: "#promise", label: "약속" },
   { href: "#order", label: "주문제작" },
 ];
 
